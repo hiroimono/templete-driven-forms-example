@@ -3,14 +3,20 @@
         <h1 class="d-flex justify-content-center search-title my-5">
             Example Component
         </h1>
-        <div class="text-right my-5">
-            <div class="form-group mt-5">
+        <div class="d-flex w-100 flex-column my-5">
+            <div class="w-100 form-group mt-5">
                 <input name="text" type="text" class="form-control" id="exampleBehaviourSubject"
-                    placeholder="Enter something" [value]="data" (keydown)=" submit($event)">
+                    placeholder="Enter something" [(ngModel)]="data" (keydown)=" submit($event)">
             </div>
-            <button class="btn btn-primary ml-2" (click)="clear()">Clear</button>
-            <button class="btn btn-secondary ml-2" [routerLink]="'forms-example'">Go to Forms Examples</button>
+            <div class="col-12 d-flex flex-column flex-md-row justify-content-between w-100 mt-5">
+                <button class="col-12 col-md-2 btn btn-primary my-2 p-2" (click)="clear()">Clear</button>
+                <button class="col-12 col-md-5 btn btn-secondary my-2 p-2" [routerLink]="'forms-example'">
+                    Go to Templete Driven Forms Example Page
+                </button>
+                <button class="col-12 col-md-4 btn btn-secondary my-2 p-2" [routerLink]="'reactive-forms-example'">
+                    Go to Reactive Forms Example Page
+                </button>
+            </div>
         </div>
-        <h2>{{ title }} </h2>
     </div>
 </div>

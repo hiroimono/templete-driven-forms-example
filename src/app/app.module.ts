@@ -16,12 +16,14 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { HomeComponent } from './components/home/home.component';
 import { FormsExampleComponent } from './components/forms-example/forms-example.component';
+import { ReactiveFormsExampleComponent } from './components/reactive-forms-example/reactive-forms-example.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         HomeComponent,
-        FormsExampleComponent
+        FormsExampleComponent,
+        ReactiveFormsExampleComponent
     ],
     imports: [
         BrowserModule,

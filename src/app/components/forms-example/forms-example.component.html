@@ -1,4 +1,7 @@
 <div class="container">
+    <h1 class="d-flex justify-content-center search-title my-5">
+        Templete Driven Forms Example
+    </h1>
     <div class="row justify-content-center align-items-center">
         <div class="col-8 my-5">
             <div class="bg-info text-white my-2 p-2">
@@ -79,12 +82,19 @@
                     </div>
                 </div>
 
-                <div class="text-right">
-                    <button type="reset" class="btn btn-secondary mr-2" (click)="clear(form)">Clear Content</button>
-                    <button [class.bg-danger]="formSubmitted && form.invalid" [disabled]="formSubmitted && form.invalid"
-                        type="submit" class="btn btn-success">
-                        Add Product
-                    </button>
+                <div class="d-flex flex-column flex-md-row justify-content-between">
+                    <div>
+                        <button class="btn btn-success w-100 my-2 my-md-0" [routerLink]="''">Back to Home</button>
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between">
+                        <button type="reset" class="btn btn-secondary mx-0 my-md-0 mb-2 mr-md-2"
+                            (click)="clear(form)">Clear
+                            Content</button>
+                        <button [class.bg-danger]="formSubmitted && form.invalid"
+                            [disabled]="formSubmitted && form.invalid" type="submit" class="btn btn-success">
+                            Add Product
+                        </button>
+                    </div>
                 </div>
             </form>
 

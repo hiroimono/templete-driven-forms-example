@@ -37,10 +37,6 @@ export class FormsExampleComponent implements OnInit {
         return errors;
     }
 
-    makeOnlyFirstLetterUpperCase(text: string): string {
-        return text.toUpperCase().slice(0, 1) + text.toLowerCase().slice(1);
-    }
-
     getValidationErrors(model: any, key?: string) {
         let controlName: string;
         model.name ? controlName = this.makeOnlyFirstLetterUpperCase(model.name) : controlName = this.makeOnlyFirstLetterUpperCase(key);
@@ -80,13 +76,13 @@ export class FormsExampleComponent implements OnInit {
         }
     }
 
+    makeOnlyFirstLetterUpperCase(text: string): string {
+        return text.toUpperCase().slice(0, 1) + text.toLowerCase().slice(1);
+    }
+
     clear(form: NgForm) {
         this.newProduct = new Product();
         form.reset();
         this.formSubmitted = false;
-    }
-
-    log(ngModel) {
-        console.log('ngModel: ', ngModel);
     }
 }
