@@ -1,0 +1,17 @@
+form-control.ng-touched.ng-invalid {
+  border: 1px solid red;
+
+}
+
+form-control.ng-dirty.ng-valid {
+  background-color: rgb(118, 209, 82);
+  color: white;
+}
+
+.redBorder {
+  border: 1px solid red;
+}
+
+.greenBorder {
+  border: 1px solid rgb(0, 241, 0);
+}

@@ -1,0 +1,93 @@
+<div class="container">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-8 my-5">
+            <div class="bg-info text-white my-2 p-2">
+                {{ JsonProduct }}
+            </div>
+
+            <form #form="ngForm" (ngSubmit)="submitForm(form)">
+
+                <div *ngIf="formSubmitted && form.invalid" class="bg-secondary text-white py-2 my-2">
+                    <ul class="py-0 m-0">
+                        <li *ngFor="let errors of getFormValidationErrors(form)">{{ errors }}</li>
+                        <!-- <li>Bilgilerinizi kontrol ediniz!!!</li> -->
+                    </ul>
+                </div>
+                <div class="form-group">
+                    <label>Name</label>
+                    <div class="d-flex justify-content-start align-items-center">
+                        <input name="name" required minlength="5" pattern="^[A-Za-z]+$" #name="ngModel"
+                            [(ngModel)]="newProduct.name" type="text" class="form-control"
+                            [ngClass]="{'redBorder': (formSubmitted || name.dirty) && name.invalid, 'greenBorder': (formSubmitted || name.dirty) && name.valid}">
+                        <i *ngIf="name.valid && name.touched" class="fas fa-check ml-2"></i>
+                    </div>
+                    <div class="alert-danger" *ngIf="(formSubmitted || name.dirty) && name.invalid">
+                        <p *ngFor="let errors of getValidationErrors(name)"> {{ errors }} </p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <div class="d-flex justify-content-start align-items-center">
+                        <input name="email" required #email="ngModel" [(ngModel)]="newProduct.email" type="email"
+                            class="form-control"
+                            [ngClass]="{'redBorder': (formSubmitted || email.dirty) && email.invalid, 'greenBorder': (formSubmitted || email.dirty) && email.valid}">
+                        <i *ngIf="email.valid && email.touched" class="fas fa-check ml-2"></i>
+                    </div>
+                    <div class="alert-danger" *ngIf="(formSubmitted || email.dirty) && email.invalid">
+                        <p *ngFor="let errors of getValidationErrors(email)"> {{ errors }} </p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Description</label>
+                    <div class="d-flex justify-content-start align-items-center">
+                        <textarea name="description" required #description="ngModel"
+                            [(ngModel)]="newProduct.description" type="text" class="form-control"
+                            [ngClass]="{'redBorder': (formSubmitted || description.dirty) && description.invalid, 'greenBorder': (formSubmitted || description.dirty) && description.valid}">
+                        </textarea>
+                        <i *ngIf="description.valid && description.touched" class="fas fa-check ml-2"></i>
+                    </div>
+                    <div class="alert-danger" *ngIf="(formSubmitted || description.dirty) && description.invalid">
+                        <p *ngFor="let errors of getValidationErrors(description)"> {{ errors }} </p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Price</label>
+                    <div class="d-flex justify-content-start align-items-center">
+                        <input name="price" required pattern="[0-9]*" #price="ngModel" [(ngModel)]="newProduct.price"
+                            type="text" class="form-control"
+                            [ngClass]="{'redBorder': (formSubmitted || price.dirty) && price.invalid, 'greenBorder': (formSubmitted || price.dirty) && price.valid}">
+                        <i *ngIf="price.valid && price.touched" class="fas fa-check ml-2"></i>
+                    </div>
+                    <div class="alert-danger" *ngIf="(formSubmitted || price.dirty) && price.invalid">
+                        <p *ngFor="let errors of getValidationErrors(price)"> {{ errors }} </p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Image Url</label>
+                    <div class="d-flex justify-content-start align-items-center">
+                        <input name="url" required #url="ngModel" [(ngModel)]="newProduct.url" type="text"
+                            class="form-control"
+                            [ngClass]="{'redBorder': (formSubmitted || url.dirty) && url.invalid, 'greenBorder': (formSubmitted || url.dirty) && url.valid}">
+                        <i *ngIf="url.valid && url.touched" class="fas fa-check ml-2"></i>
+                    </div>
+                    <div class="alert-danger" *ngIf="(formSubmitted || url.dirty) && url.invalid">
+                        <p *ngFor="let errors of getValidationErrors(url)"> {{ errors }} </p>
+                    </div>
+                </div>
+
+                <div class="text-right">
+                    <button type="reset" class="btn btn-secondary mr-2" (click)="clear(form)">Clear Content</button>
+                    <button [class.bg-danger]="formSubmitted && form.invalid" [disabled]="formSubmitted && form.invalid"
+                        type="submit" class="btn btn-success">
+                        Add Product
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

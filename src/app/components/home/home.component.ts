@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataStoreService } from '../../services/data-store.service';
+// import { DataStoreService } from '../../services/data-store.service';
 
 @Component({
     selector: 'app-home',
@@ -7,11 +7,17 @@ import { DataStoreService } from '../../services/data-store.service';
     styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-    public data: string; // in this example data is a text
+    public today: number = Date.now();
+    public title: string = 'Angular Test';
+    public students: number = 3424234;
+    public price: number = 32432424.23424;
+    public copleted: number = 0.3424;
+
+    public data;
 
     constructor(
         // 2. add service
-        private _storeData: DataStoreService
+        // private _storeData: DataStoreService
     ) { }
 
     async ngOnInit() {
@@ -22,8 +28,8 @@ export class HomeComponent implements OnInit {
         console.log('Initialized!');
     }
 
-    public submit() {
-        console.log('Submitted!!!');
+    public submit(e: any) {
+        console.log('Submitted !!!: ', e);
     }
 
     public clear() {

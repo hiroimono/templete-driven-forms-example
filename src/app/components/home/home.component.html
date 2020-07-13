@@ -6,9 +6,11 @@
         <div class="text-right my-5">
             <div class="form-group mt-5">
                 <input name="text" type="text" class="form-control" id="exampleBehaviourSubject"
-                    placeholder="Enter something" [(ngModel)]="data" (keydown.enter)="submit()">
+                    placeholder="Enter something" [value]="data" (keydown)=" submit($event)">
             </div>
             <button class="btn btn-primary ml-2" (click)="clear()">Clear</button>
+            <button class="btn btn-secondary ml-2" [routerLink]="'forms-example'">Go to Forms Examples</button>
         </div>
+        <h2>{{ title }} </h2>
     </div>
 </div>
