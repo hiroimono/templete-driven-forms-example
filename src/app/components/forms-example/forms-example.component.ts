@@ -54,7 +54,7 @@ export class FormsExampleComponent implements OnInit {
                         break;
 
                     case 'pattern':
-                        errors.push(`Invalid characters were entered!`)
+                        errors.push(`Invalid Content!`)
                         break;
 
                     default:
